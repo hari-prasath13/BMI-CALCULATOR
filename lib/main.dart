@@ -1,52 +1,24 @@
 import 'package:flutter/material.dart';
+import 'body.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
-  runApp(Myapp());
+  runApp(MyApp());
 }
 
-class Myapp extends StatelessWidget {
-  const Myapp({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-          primaryColor: Color(0xFF0f101d),
-        colorScheme: ColorScheme.fromSwatch()
-            .copyWith(secondary: Colors.orange), // Set the accent color
-        brightness: Brightness.light, // Set the brightness (light or dark)
-        typography: Typography.material2018(),
-      ),
-      home:body(),
-    );
-  }
-}
+      theme: ThemeData.dark().copyWith(
+        colorScheme: ColorScheme.dark(primary: Color(0xFF1d1c2e)),
+          scaffoldBackgroundColor:Color(0xFF1d1c2e),
 
-int a =0;
-class body extends StatefulWidget {
-  const body({super.key});
-
-  @override
-  State<body> createState() => _bodyState();
-}
-
-class _bodyState extends State<body> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Center(child: Text('BMI CALCULATOR')),
-        backgroundColor: Theme.of(context).primaryColor,
          ),
-
-      body: Center(child: Text('TEXT')),
-      backgroundColor: Theme.of(context).primaryColor,
-      floatingActionButton:FloatingActionButton(onPressed: () {  },
-      child: Icon(Icons.add),),
+      home: Body(),
     );
   }
 }
-
-
-
-
 
