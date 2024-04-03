@@ -2,28 +2,18 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 class Brain{
-   Brain({required this.height,required this.weight}):_bmi=0;
+   Brain({required this.height,required this.weight});
 
      final int height;
      final int weight;
 
-    double _bmi;
+   double get _bmi {
+     return weight / pow(height / 100, 2);
+   }
 
-  String calculateBMI() {
-      _bmi= weight/pow(height/100, 2);
-      return _bmi.toStringAsFixed(1);
-
-     }
-
-  String getresult(){
-    if(_bmi >=25 ){
-      return 'Overweight';
-    }else if(_bmi > 18.5){
-      return'Normal';
-    }else{
-      return'Underweight';
-    }
-  }
+   String calculateBMI() {
+     return _bmi.toStringAsFixed(1);
+   }
 
    String getsuggestion(){
      if(_bmi >=25 ){
@@ -34,6 +24,19 @@ class Brain{
        return'you have a lower than normal body weight';
      }
    }
+
+
+   String gettop(){
+     if(_bmi >=25 ){
+       return 'overweight';
+     }else if(_bmi > 18.5){
+       return'normal';
+     }else{
+       return'underweight';
+     }
+   }
+
+
 
 
 }

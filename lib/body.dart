@@ -172,17 +172,19 @@ class _BodyState extends State<Body> {
             ),
             BottomButton(word: 'CALCULATE',
               onTap:  (){
-              Brain cal = Brain(height: height, weight: weight);
-              print(cal.getsuggestion());
+              setState(() {
+                Brain cal = Brain(height: height, weight: weight);
+                print(cal.gettop());
 
-              Navigator.push(
-                 context,
-                 MaterialPageRoute(builder: (context) => Secondpage(
-                   top: cal.getresult(),
-                   middle: cal.calculateBMI(),
-                   last: cal.getsuggestion(),
-                 )),
-               );
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Secondpage(
+                    top: cal.gettop(),
+                    middle: cal.calculateBMI(),
+                    last: cal.getsuggestion(),
+                  ),),
+                );
+              });
 
               },
              ),

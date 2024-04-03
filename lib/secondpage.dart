@@ -37,7 +37,7 @@ class _SecondpageState extends State<Secondpage> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                   Text( widget.top ,style: kresulttxt,),
+                   Text( widget.top.toUpperCase() ,style: kresulttxt),
                    Text( widget.middle,style: kbmitxt,) ,
                     Text(widget.last,style: ksecondlast,textAlign: TextAlign.center,),
                   
@@ -51,10 +51,13 @@ class _SecondpageState extends State<Secondpage> {
               ),
 
            BottomButton(word: 'RE-CALCULATE',
-             onTap:  (){  Navigator.push(
-               context,
-               MaterialPageRoute(builder: (context) => Body()),
-             );},
+             onTap:  (){  setState(() {
+               Navigator.push(
+                 context,
+                 MaterialPageRoute(builder: (context) => Body()),
+               );
+             });
+             },
            ),
 
     ],
